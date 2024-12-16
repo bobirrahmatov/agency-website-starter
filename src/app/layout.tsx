@@ -9,7 +9,10 @@ import dynamic from "next/dynamic"; // Import dynamic from Next.js
 const font = Inter({ subsets: ["latin"] });
 
 // Dynamically import ClerkProvider to avoid SSR issues
-const ClerkProvider = dynamic(() => import('@clerk/nextjs').then((mod) => mod.ClerkProvider), { ssr: false });
+const ClerkProvider = dynamic(() => import('@clerk/nextjs').then((mod) => mod.ClerkProvider), {
+    ssr: false,
+    loading: () => <div>Loading...</div> // Optionally, display a loading component
+});
 
 export const metadata = SITE_CONFIG;
 
