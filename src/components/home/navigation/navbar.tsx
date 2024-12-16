@@ -1,12 +1,12 @@
+'use client';
+
 import { Container, Icons } from "@/components";
 import { buttonVariants } from "@/components/ui/button";
-import { UserButton, } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+import { UserButton, useUser } from "@clerk/nextjs"; // Use the useUser hook for client-side user data
 import Link from "next/link";
 
-const Navbar = async () => {
-
-    const user = await currentUser();
+const Navbar = () => {
+    const { user, isSignedIn } = useUser(); // Access user data and sign-in status
 
     return (
         <header className="px-4 h-14 sticky top-0 inset-x-0 w-full bg-background/40 backdrop-blur-lg border-b border-border z-50">
@@ -15,9 +15,7 @@ const Navbar = async () => {
                     <div className="flex items-start">
                         <Link href="/" className="flex items-center gap-2">
                             <Icons.logo className="w-8 h-8" />
-                            <span className="text-lg font-medium">
-                                Axon
-                            </span>
+                            <span className="text-lg font-medium">Axon</span>
                         </Link>
                     </div>
                     <nav className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -29,7 +27,7 @@ const Navbar = async () => {
                         </ul>
                     </nav>
                     <div className="flex items-center gap-4">
-                        {user ? (
+                        {isSignedIn ? ( // Check if the user is signed in
                             <UserButton />
                         ) : (
                             <>
@@ -45,7 +43,7 @@ const Navbar = async () => {
                 </div>
             </Container>
         </header>
-    )
+    );
 };
 
-export default Navbar
+export default Navbar;
