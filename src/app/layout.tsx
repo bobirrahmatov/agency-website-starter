@@ -2,11 +2,14 @@ import { Footer, Navbar } from "@/components";
 import { SITE_CONFIG } from "@/config";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import { Inter } from "next/font/google";
+import dynamic from "next/dynamic"; // Import dynamic from Next.js
 
 const font = Inter({ subsets: ["latin"] });
+
+// Dynamically import ClerkProvider to avoid SSR issues
+const ClerkProvider = dynamic(() => import('@clerk/nextjs').then((mod) => mod.ClerkProvider), { ssr: false });
 
 export const metadata = SITE_CONFIG;
 
@@ -23,10 +26,11 @@ export default function RootLayout({
                     font.className
                 )}
             >
+                {/* Dynamically load ClerkProvider to avoid SSR rendering issues */}
                 <ClerkProvider appearance={{ baseTheme: dark }}>
                     {children}
                 </ClerkProvider>
             </body>
         </html>
     );
-};
+}
