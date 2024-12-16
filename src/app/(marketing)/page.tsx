@@ -35,7 +35,7 @@ const HomePage = () => {
                             <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-primary/40"></span>
                             <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center justify-center gap-1.5">
                                 <Image src="/icons/sparkles-dark.svg" alt="✨" width={24} height={24} className="w-4 h-4" />
-                                Introducing Astra AI
+                                Introducing Axon AI
                                 <ChevronRight className="w-4 h-4" />
                             </span>
                         </button>
@@ -124,7 +124,7 @@ const HomePage = () => {
                             Discover our powerful features
                         </h2>
                         <p className="text-muted-foreground mt-6">
-                            Astra offers a range of features to help you build a stunning website in no time
+                            Axon offers a range of features to help you build a stunning website in no time
                         </p>
                     </div>
                 </Container>
@@ -223,7 +223,7 @@ const HomePage = () => {
                             What people are saying
                         </h2>
                         <p className="text-muted-foreground mt-6">
-                            See how Astra empowers businesses of all sizes. Here&apos;s what real people are saying on Twitter
+                            See how Axon empowers businesses of all sizes. Here&apos;s what real people are saying on Twitter
                         </p>
                     </div>
                 </Container>
@@ -290,7 +290,7 @@ const HomePage = () => {
                                 From Idea to Launch <br /> Faster Than Ever
                             </h2>
                             <p className="text-muted-foreground mt-6 max-w-md mx-auto">
-                                Build stunning websites with Astra&apos;s intuitive drag-and-drop builder and powerful AI assistant
+                                Build stunning websites with Axon&apos;s intuitive drag-and-drop builder and powerful AI assistant
                             </p>
                             <Button variant="white" className="mt-6" asChild>
                                 <Link href="/sign-in">
